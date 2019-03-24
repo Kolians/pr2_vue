@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Pr_vue</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="container" id="app" >
+		<div v-show='!ShowHidden'>
+		<div class="form_fields">
+		 <input v-model="message" type="text" placeholder="zachem tyt tekct">
+			<input v-on:click="Api()" type="button" value="Send">
+		</div>	
+			<div class="films" v-for="result in results">
+				<div class="block_film " v-on:click="onClick">
+						<div class="card">
+							<img v-bind:src="result.Poster" />
+						<div class="tty">
+						<p class="title" id="title">{{ result.Title }}</p></br>
+						<p class="type" id="type">{{ result.Type }}</p></br>
+						<p class="year" id="year">{{ result.Year }}</p></br>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+
+		<div v-show='ShowHidden'>
+			<div class="form_back ">
+				<input type="button" value="Back" v-on:click="Back">
+			</div>
+			<div class="margin">
+				<div class="card">
+						<img v-bind:src="resultat.Poster" />
+					<div class="tty">
+						<p>{{ resultat.Title }}</p>
+						<p>{{ resultat.Type }}</p>
+						<p>{{ resultat.Year }}</p>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+
+    </div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
+		<script src="script.js"></script>
+</body>
+</html>
